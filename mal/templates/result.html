@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <title>
+        检测结果
+
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <style>
+        .selector-for-some-widget {
+            box-sizing: content-box;
+        }
+
+        a {
+            margin-right: 40px;
+        }
+
+    </style>
+
+
+</head>
+
+<body  style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;" >
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <style type="text/css">
+        body {
+            margin-top: 80px;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="/index">
+            首页
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+
+<li class="nav-item">
+                    <a class="nav-link" href="/detect">恶意代码检测</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tree">ID3决策树展示</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tree2">C4.5决策树展示</a>
+                </li>
+
+
+
+            </ul>
+
+
+        </div>
+    </nav>
+
+
+
+<table class="table table-striped">
+  <caption>检测结果</caption>
+  <thead>
+    <tr>
+      <th>Detect Title</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>软件名称</td>
+      <td>{{name}}</td>
+    </tr>
+    <tr>
+        <td>ID3决策树检测</td>
+      <td>{{result1}}</td>
+    </tr>
+    <tr>
+        <td>ID3检测过程</td>
+       <td>{{d1}}</td>
+    </tr>
+    <tr>
+        <td>C4.5决策树检测</td>
+        <td>{{result2}}</td>
+    </tr>
+    <tr>
+        <td>C4.5检测过程</td>
+      <td>{{dec_str}}</td>
+    </tr>
+
+
+  </tbody>
+</table>
+</body>
+
+</html>

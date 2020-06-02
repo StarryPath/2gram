@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+           <title>
+        ID3决策树
+
+    </title>
+           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <style>
+        .selector-for-some-widget {
+            box-sizing: content-box;
+        }
+
+        a {
+            margin-right: 40px;
+        }
+
+    </style>
+   </head>
+   <body style="height: 100%; margin: 0">
+   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <style type="text/css">
+        body {
+            margin-top: 80px;
+        }
+    </style>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="/index">
+            首页
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+
+<li class="nav-item">
+                    <a class="nav-link" href="/detect">恶意代码检测</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tree">ID3决策树展示</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tree2">C4.5决策树展示</a>
+                </li>
+
+
+
+            </ul>
+
+
+        </div>
+    </nav>
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=03jNFtRzoo6OTFGdG6oyzhpkSN8LohwX&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+myChart.showLoading();
+$.get('/static/tree1.json', function (data) {
+    myChart.hideLoading();
+
+    myChart.setOption(option = {
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+
+        series:[
+            {
+                type: 'tree',
+
+                data: [data],
+
+                left: '2%',
+                right: '2%',
+                top: '8%',
+                bottom: '20%',
+                roam: true,
+                symbol: 'emptyCircle',
+                initialTreeDepth :2,
+                orient: 'horizontal',
+
+                expandAndCollapse: true,
+
+                label: {
+                    position: 'top',
+
+                    verticalAlign: 'middle',
+                    align: 'right',
+                    fontSize: 12
+                },
+
+                leaves: {
+                    label: {
+                        position: 'right',
+                        verticalAlign: 'middle',
+                        align: 'left'
+                    }
+                },
+
+                animationDurationUpdate: 750
+            }
+        ]
+    });
+});
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
